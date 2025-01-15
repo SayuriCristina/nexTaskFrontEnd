@@ -1,0 +1,41 @@
+.navbar {
+    padding: 10px 0;
+    margin: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--purple-1);
+    position: relative;
+}
+
+#logo {
+    width: 180px;
+    height: auto;
+}
+
+.input-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--purple-4);
+    border-radius: 6px;
+    padding: 0 6px;
+    box-shadow: 0 3px var(--purple-4);
+}
+
+.navbar input[type=text] {
+    width: 100%;
+    padding: 6px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.navbar input::placeholder,
+.input-icon,
+#info {
+    color: var(--purple-4);
+}

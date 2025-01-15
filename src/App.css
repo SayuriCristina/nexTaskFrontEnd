@@ -1,0 +1,43 @@
+:root {
+    --purple-4: #4B296B;
+    --purple-3: #4C2C72;
+    --purple-2: #A191B4;
+    --purple-1: #CBC3D5;
+    --white: #F5F5F5;
+    --pink-1: #E199B8;
+    --pink-2: #D76B9A;
+    --pink-3: #D2548B;
+    --pink-4: #CD3C7B;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--white);
+}
+
+img,
+picture,
+video,
+canvas {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+    font: inherit;
+    color: inherit;
+    border: none;
+    background: none;
+}

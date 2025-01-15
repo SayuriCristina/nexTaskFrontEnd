@@ -1,0 +1,42 @@
+.footer {
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--pink-2);
+    color: var(--white);
+    position: bottom;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 1280px;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.highlight {
+    color: var(--purple-4);
+    text-transform: uppercase;
+}
+
+.footer-subtitle {
+    font-size: 1.125rem;
+    padding-bottom: 0.25rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon:hover {
+    opacity: 0.8;
+}
