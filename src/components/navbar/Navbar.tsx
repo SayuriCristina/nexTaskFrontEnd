@@ -9,7 +9,6 @@ function Navbar({ tarefas, setFilteredTarefas }) {
     const handleInputChange = (e) => {
         const value = e.target.value.toLowerCase();
         setQuery(value);
-        // Filtra as tarefas dinamicamente
         setFilteredTarefas(
             tarefas.filter((tarefa) =>
                 tarefa.titulo.toLowerCase().includes(value)
@@ -27,7 +26,7 @@ function Navbar({ tarefas, setFilteredTarefas }) {
                     placeholder="Pesquisa..."
                     className="input-box"
                     value={query}
-                    onChange={handleInputChange} // Atualiza dinamicamente
+                    onChange={handleInputChange}
                 />
             </div>
         </div>

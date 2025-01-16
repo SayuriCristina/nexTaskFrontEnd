@@ -44,7 +44,7 @@ function CardTarefas({ tarefa, onUpdate }: CardProps) {
 
             alert('Tarefa foi atualizada com sucesso!');
             setIsEditing(false);
-            window.location.reload(); // Recarrega a página após salvar
+            window.location.reload(); 
 
         } catch (error) {
             console.error('Erro ao atualizar tarefa:', error);
@@ -56,7 +56,7 @@ function CardTarefas({ tarefa, onUpdate }: CardProps) {
         try {
             await deletar(`/tarefas/${tarefa.id}`);
             alert('Tarefa apagada com sucesso');
-            window.location.reload(); // Recarrega a página após exclusão
+            window.location.reload();
 
         } catch (error) {
             console.error('Erro ao apagar tarefa:', error);
