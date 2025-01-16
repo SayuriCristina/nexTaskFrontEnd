@@ -1,0 +1,46 @@
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    font-size: 16px;
+    box-shadow: inset 0px 0px 0px 2px var(--purple-4);
+}
+
+.task {
+    padding: 0 12px;
+}
+
+#titulo {
+    font-size: large;
+    color: var(--purple-4);
+    font-weight: 500;
+
+}
+
+.card button {
+    margin: 10px 0 0 0;
+    width: 100%;
+}
+
+#modal-detalhes-corpo {
+    width: 300px;
+}
+
+.action-buttons {
+    margin: 20px 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#modal-titulo {
+    color: var(--purple-4);
+}
+
+#button-editar,
+#button-excluir {
+    width: 100%;
+}
