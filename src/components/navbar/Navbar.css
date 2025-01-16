@@ -35,7 +35,6 @@
 }
 
 .navbar input::placeholder,
-.input-icon,
-#info {
+.input-icon{
     color: var(--purple-4);
 }

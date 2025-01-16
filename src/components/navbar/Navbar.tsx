@@ -30,9 +30,6 @@ function Navbar({ tarefas, setFilteredTarefas }) {
                     onChange={handleInputChange} // Atualiza dinamicamente
                 />
             </div>
-            <button id="info">
-                <FiInfo size={34} />
-            </button>
         </div>
     );
 }
