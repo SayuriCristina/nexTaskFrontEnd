@@ -44,9 +44,9 @@ function CardTarefas({ tarefa, onUpdate }: CardProps) {
 
             alert('Tarefa foi atualizada com sucesso!');
             setIsEditing(false);
+            window.location.reload(); // Recarrega a página após salvar
 
         } catch (error) {
-
             console.error('Erro ao atualizar tarefa:', error);
             alert('Erro ao atualizar tarefa.');
         }
@@ -54,43 +54,53 @@ function CardTarefas({ tarefa, onUpdate }: CardProps) {
 
     const handleDelete = async () => {
         try {
-            await deletar(`/tarefas/${tarefa.id}`)
-            alert('Tarefa apagada com sucesso')
+            await deletar(`/tarefas/${tarefa.id}`);
+            alert('Tarefa apagada com sucesso');
+            window.location.reload(); // Recarrega a página após exclusão
 
         } catch (error) {
-            console.error('Erro ao apagar tarefa:', error)
-            alert('Erro ao apagar tarefa.')
+            console.error('Erro ao apagar tarefa:', error);
+            alert('Erro ao apagar tarefa.');
         }
-
-
     };
 
     return (
         <>
-            <div className="card">
-                <div className="task">
-                    <div id="titulo">{tarefa.titulo}</div>
-                    <div id="descricao">{tarefa.descricao}</div>
-                </div>
+            <article
+                className="card"
+                draggable
+                onDragStart={(e) => {
+                    e.dataTransfer.setData('text/plain', JSON.stringify(tarefa));
+                }}
+            >
+                <header className="task">
+                    <p id="titulo">{tarefa.titulo}</p>
+                    <p id="descricao">{tarefa.descricao}</p>
+                </header>
                 <button className="button-3d" onClick={() => setIsModalOpen(true)}>
                     <span className="text">Detalhes</span>
                 </button>
-            </div>
+            </article>
 
             {isModalOpen && (
-                <div className="modal-overlay" onClick={handleOverlayClick}>
+                <section className="modal-overlay" onClick={handleOverlayClick}>
                     <div className="modal-content" onClick={handleModalContentClick}>
                         <div className="modal-body" id="modal-detalhes-corpo">
                             {isEditing ? (
                                 <form onSubmit={handleSubmit}>
+                                    <label htmlFor="titulo">Título:</label>
                                     <input
+                                        className="input"
                                         type="text"
                                         value={editedTitulo}
                                         onChange={(e) => setEditedTitulo(e.target.value)}
                                         placeholder="Título"
                                         required
                                     />
+                                    <label htmlFor="descricao">Descrição:</label>
                                     <textarea
+                                        className="input"
+                                        id="descricao"
                                         value={editedDescricao}
                                         onChange={(e) => setEditedDescricao(e.target.value)}
                                         placeholder="Descrição"
@@ -112,7 +122,9 @@ function CardTarefas({ tarefa, onUpdate }: CardProps) {
                                 </form>
                             ) : (
                                 <>
-                                    <h1 id="modal-titulo">{tarefa.titulo}</h1>
+                                    <header>
+                                        <h1 id="modal-titulo">{tarefa.titulo}</h1>
+                                    </header>
                                     <p>{tarefa.descricao}</p>
                                     <div className="action-buttons">
                                         <button className="button-3d" id="button-editar" onClick={() => setIsEditing(true)}>
@@ -126,7 +138,7 @@ function CardTarefas({ tarefa, onUpdate }: CardProps) {
                             )}
                         </div>
                     </div>
-                </div>
+                </section>
             )}
         </>
     );

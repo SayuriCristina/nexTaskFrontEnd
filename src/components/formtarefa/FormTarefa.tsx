@@ -55,11 +55,9 @@ function FormTarefa({ listStatus }: FormTarefaProps) {
                     </div>
                     <div>
                         <label htmlFor="descricao">Descrição</label>
-                        <input className="input"
-                            type="text"
+                        <textarea className="input"
                             placeholder="Descreva aqui sua tarefa"
                             name="descricao"
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <button type="submit" className='button-3d'>
