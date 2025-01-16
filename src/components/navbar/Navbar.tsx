@@ -18,7 +18,7 @@ function Navbar({ tarefas, setFilteredTarefas }) {
 
     return (
         <div className="navbar">
-            <img src="https://imgur.com/a/iugdiausggfias-lrHOQwG" id="logo" alt="Nextask Logo" />
+            <img src="https://i.imgur.com/XeZL6Gr.png" id="logo" alt="Nextask Logo" />
             <div className="input-container">
                 <IoSearch className="input-icon" />
                 <input
