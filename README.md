@@ -1,50 +1,109 @@
-# React + TypeScript + Vite
+# NexTask - Plataforma de Gerenciamento de Tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Visão Geral
 
-Currently, two official plugins are available:
+NexTask é uma plataforma moderna e intuitiva para gerenciamento de tarefas, inspirada no modelo Trello. A aplicação permite aos usuários:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Organizar tarefas em diferentes estágios de progresso
+- Aumentar a produtividade através de uma interface drag-and-drop
+- Acompanhar e alcançar objetivos com facilidade
 
-## Expanding the ESLint configuration
+## Tecnologias 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Frontend
+- TypeScript como linguagem principal
+- React.js para construção da interface de usuário
+- Axios para comunicação com o backend
 
-- Configure the top-level `parserOptions` property like this:
+### Backend
+- Java como linguagem principal
+- Spring Boot como framework de desenvolvimento
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Funcionalidades
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Interface do Usuário
+- **Visualização em Cards**: Todas as tarefas são exibidas em formato de cards organizados por status
+- **Gerenciamento Completo**: 
+  - Criação de novas tarefas através de formulário dedicado
+  - Edição de tarefas existentes via formulário
+  - Atualização do status através de drag-and-drop
+  - Exclusão de tarefas indesejadas
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### API REST
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+A API oferece endpoints completos para operações CRUD:
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/tarefas` | Lista todas as tarefas |
+| GET | `/tarefas/:id` | Recupera uma tarefa específica |
+| GET | `/tarefas/titulo/:titulo` | Busca tarefas por título |
+| POST | `/tarefas` | Cria uma nova tarefa |
+| PUT | `/tarefas` | Atualiza uma tarefa existente |
+| DELETE | `/tarefas/:id` | Remove uma tarefa |
+
+## Configuração do Ambiente de Desenvolvimento
+
+### Backend
+
+#### Pré-requisitos
+- JDK (Java Development Kit)
+- Spring Framework
+- MySQL
+
+#### Passos de Instalação
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/SayuriCristina/nexTask
+   ```
+
+2. Configure o Banco de Dados:
+   - Localize o arquivo `application.properties` em `src/main/resources`
+   - Altere o perfil ativo para desenvolvimento:
+     ```properties
+     spring.profiles.active=dev
+     ```
+   - No arquivo `application-dev.properties`, configure as credenciais do MySQL:
+     ```properties
+     spring.datasource.username=seu_usuario
+     spring.datasource.password=sua_senha
+     ```
+
+3. Execute o projeto como uma aplicação Spring Boot
+
+### Frontend
+
+#### Pré-requisitos
+- Node.js e npm (ou Yarn)
+- Vite
+
+#### Passos de Instalação
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/SayuriCristina/nexTaskFrontEnd
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
+
+3. Configure a URL do backend:
+   - Localize o arquivo `service.ts` na pasta `src/services`
+   - Atualize a `baseURL` com o endereço do backend
+
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+## Observações Importantes
+
+O backend está hospedado em um serviço gratuito com as seguintes limitações:
+- O serviço entra em modo de espera após 60 segundos sem requisições
+- O primeiro acesso após o período de inatividade pode ser mais lento
+- Aguarde o carregamento completo antes de utilizar a aplicação
