@@ -93,7 +93,7 @@ A API oferece endpoints completos para operações CRUD:
 
 3. Configure a URL do backend:
    - Localize o arquivo `service.ts` na pasta `src/services`
-   - Atualize a `baseURL` com o endereço do backend
+   - Atualize a `baseURL` com o endereço do backend hospedado no Render.
 
 4. Inicie o servidor de desenvolvimento:
    ```bash
