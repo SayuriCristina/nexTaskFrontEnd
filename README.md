@@ -18,6 +18,7 @@ NexTask é uma plataforma moderna e intuitiva para gerenciamento de tarefas, ins
 ### Backend
 - Java como linguagem principal
 - Spring Boot como framework de desenvolvimento
+- Docker para containerização e padronização do ambiente de desenvolvimento
 
 ## Funcionalidades
 
